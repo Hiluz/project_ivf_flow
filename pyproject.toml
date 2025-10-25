@@ -1,0 +1,22 @@
+[project]
+name = "project_ivf_flow"
+version = "0.1.0"
+description = "project_ivf_flow using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]==1.1.0"
+]
+
+[project.scripts]
+kickoff = "project_ivf_flow.main:kickoff"
+run_crew = "project_ivf_flow.main:kickoff"
+plot = "project_ivf_flow.main:plot"
+run_with_trigger = "project_ivf_flow.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "flow"

@@ -20,16 +20,16 @@ class DataPreprocessingAndAnalysis():
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def researcher(self) -> Agent:
+    def data_cleaner(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher'], # type: ignore[index]
+            config=self.agents_config['data_cleaner'], # type: ignore[index]
             verbose=True
         )
 
     @agent
-    def reporting_analyst(self) -> Agent:
+    def data_validator(self) -> Agent:
         return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
+            config=self.agents_config['data_validator'], # type: ignore[index]
             verbose=True
         )
 
@@ -37,16 +37,16 @@ class DataPreprocessingAndAnalysis():
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
-    def research_task(self) -> Task:
+    def data_cleaning_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['data_cleaning_task'], # type: ignore[index]
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def data_validation_task(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
-            output_file='report.md'
+            config=self.tasks_config['data_validation_task'], # type: ignore[index]
+            output_file='data_quality_report.md'
         )
 
     @crew
